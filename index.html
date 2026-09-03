@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineage 2 — Официальное представление</title>
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+header video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+header h1,
+header p,
+header .btn {
+    position: relative;
+    z-index: 1;
+}
+</style>
+</head>
+
+<body>
+    <audio id="bg-music" loop>
+    <source src="mm.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="document.getElementById('bg-music').play()" 
+        style="position: fixed; bottom: 20px; right: 20px; 
+               padding: 12px 20px; background: #d4af37; 
+               border: none; border-radius: 5px; 
+               font-weight: bold; cursor: pointer; z-index: 100;">
+    Включить музыку
+</button>
+<header>
+    <video autoplay muted loop playsinline>
+        <source src="fonnn.mp4" type="video/mp4">
+    </video>
+
+    <h1>LINEAGE 2</h1>
+    <p>Легендарная MMORPG...</p>
+    <a href="#play" class="btn">Начать играть</a>
+</header>
+
+       <header>
+    <video autoplay muted loop playsinline>
+        <source src="fonnn.mp4" type="video/mp4">
+    </video>
+
+    <h1>LINEAGE 2</h1>
+    <p>Легендарная MMORPG...</p>
+    <a href="#play" class="btn">Начать играть</a>
+</header>
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Главный экран -->
+    <header>
+        <h1>LINEAGE 2</h1>
+        <p>Легендарная MMORPG, где судьба мира зависит от тебя. Сражайся, развивайся и стань героем Адена.</p>
+        <a href="#play" class="btn">Начать играть</a>
+    </header>
+
+    <!-- О игре -->
+    <section>
+        <h2>Об игре</h2>
+        <div class="about">
+            <div>
+                <p>Lineage 2 — это классическая фэнтезийная MMORPG, созданная компанией NCsoft. Игра погружает вас в огромный мир, полный опасностей, древних тайн, мощных боссов и эпических сражений.</p>
+                <br>
+                <p>Здесь вы сможете выбрать свой путь: стать могущественным воином, мудрым магом, ловким лучником или смертоносным ассасином. Сотни игроков сражаются плечом к плечу и друг против друга в масштабных осадах замков.</p>
+            </div>
+            <img src="https://via.placeholder.com/600x400/1a1a2e/d4af37?text=Lineage+2" alt="Lineage 2">
+        </div>
+    </section>
+
+    <!-- Особенности -->
+    <section>
+        <h2>Особенности игры</h2>
+        <div class="features">
+            <div class="feature-card">
