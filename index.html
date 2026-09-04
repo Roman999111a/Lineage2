@@ -5,111 +5,368 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lineage 2 — Официальное представление</title>
     <style>
-        
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0b12;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0d0d0d;
-    color: #e0e0e0;
-    line-height: 1.6;
-}
+        /* ===== Верхнее меню ===== */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(10, 10, 20, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
 
-header {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    overflow: hidden;
-}
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
 
-header video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
+        .logo span {
+            color: #a855f7;
+        }
 
-header h1,
-header p,
-header .btn {
-    position: relative;
-    z-index: 1;
-}
-</style>
-</head>
+        .top-buttons a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.95rem;
+        }
 
-<body>
-    <audio id="bg-music" loop>
-    <source src="mm.mp3" type="audio/mpeg">
-</audio>
+        .btn-cabinet {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
 
-<button onclick="document.getElementById('bg-music').play()" 
-        style="position: fixed; bottom: 20px; right: 20px; 
-               padding: 12px 20px; background: #d4af37; 
-               border: none; border-radius: 5px; 
-               font-weight: bold; cursor: pointer; z-index: 100;">
-    Включить музыку
-</button>
-<header>
-    <video autoplay muted loop playsinline>
-        <source src="fonnn.mp4" type="video/mp4">
-    </video>
+        /* ===== Главный экран ===== */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
 
-    <h1>LINEAGE 2</h1>
-    <p>Легендарная MMORPG...</p>
-    <a href="#play" class="btn">Начать играть</a>
-</header>
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
 
-       <header>
-    <video autoplay muted loop playsinline>
-        <source src="fonnn.mp4" type="video/mp4">
-    </video>
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(11,11,18,0.85));
+            z-index: -1;
+        }
 
-    <h1>LINEAGE 2</h1>
-    <p>Легендарная MMORPG...</p>
-    <a href="#play" class="btn">Начать играть</a>
-</header>
+        header h1 {
+            font-size: 4.5rem;
+            color: #d4af37;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
 
+        header .subtitle {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
 
+        header .server-name {
+            font-size: 1.8rem;
+            color: #a855f7;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 16px 50px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            transition: 0.3s;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+        }
+
+        /* ===== Блоки серверов ===== */
+        .servers {
+            display: flex;
+            gap: 25px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .server-card {
+            background: rgba(20, 20, 35, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            padding: 20px 30px;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .server-card h3 {
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .online {
+            color: #22c55e;
+            font-size: 0.95rem;
+        }
+
+        /* ===== Секции ===== */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.4rem;
+            color: #d4af37;
+            margin-bottom: 50px;
+        }
+
+        /* Особенности */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: #151525;
+            border: 1px solid #2a2a40;
+            border-radius: 12px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-6px);
+        }
+
+        .feature-card h3 {
+            color: #d4af37;
+            margin-bottom: 12px;
+        }
+
+        /* Новости */
+        .news {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .news-card {
+            background: #151525;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2a40;
+        }
+
+        .news-card .date {
+            color: #a855f7;
+            font-size: 0.85rem;
+            padding: 15px 20px 0;
+        }
+
+        .news-card h3 {
+            padding: 10px 20px;
+            color: #d4af37;
+        }
+
+        .news-card p {
+            padding: 0 20px 20px;
+            color: #bbb;
+            font-size: 0.95rem;
+        }
+
+        /* Кнопка музыки */
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #d4af37, #f0d060);
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 100;
+            color: #111;
+        }
+
+        /* Подвал */
+        footer {
+            background: #0a0a12;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #222;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #a855f7;
+            margin: 0 12px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.8rem; }
+            .top-bar { padding: 0 15px; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Верхнее меню -->
+    <div class="top-bar">
+        <div class="logo">LINEAGE <span>2</span></div>
+        <div class="top-buttons">
+            <a href="#">Форум</a>
+            <a href="#">Discord</a>
+            <a href="#" class="btn-cabinet">Личный кабинет</a>
+        </div>
+    </div>
+
+    <!-- Музыка -->
+    <audio id="bg-music" loop>
+        <source src="mm.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" onclick="document.getElementById('bg-music').play()">
+        Включить музыку
+    </button>
+
     <!-- Главный экран -->
     <header>
-        <h1>LINEAGE 2</h1>
-        <p>Легендарная MMORPG, где судьба мира зависит от тебя. Сражайся, развивайся и стань героем Адена.</p>
-        <a href="#play" class="btn">Начать играть</a>
-    </header>
+        <video autoplay muted loop playsinline>
+            <source src="fonnn.mp4" type="video/mp4">
+        </video>
 
-    <!-- О игре -->
-    <section>
-        <h2>Об игре</h2>
-        <div class="about">
-            <div>
-                <p>Lineage 2 — это классическая фэнтезийная MMORPG, созданная компанией NCsoft. Игра погружает вас в огромный мир, полный опасностей, древних тайн, мощных боссов и эпических сражений.</p>
-                <br>
-                <p>Здесь вы сможете выбрать свой путь: стать могущественным воином, мудрым магом, ловким лучником или смертоносным ассасином. Сотни игроков сражаются плечом к плечу и друг против друга в масштабных осадах замков.</p>
+        <h1>LINEAGE 2</h1>
+        <div class="server-name">НОВЫЙ СЕРВЕР x10</div>
+        <p class="subtitle">Легендарная MMORPG, где судьба мира зависит от тебя. Сражайся, развивайся и стань героем Адена.</p>
+        
+        <a href="#play" class="btn-main">НАЧАТЬ ИГРУ</a>
+
+        <div class="servers">
+            <div class="server-card">
+                <h3>ASTRYX x10</h3>
+                <div class="online">● Сейчас в игре: 124</div>
             </div>
-            <img src="https://via.placeholder.com/600x400/1a1a2e/d4af37?text=Lineage+2" alt="Lineage 2">
+            <div class="server-card">
+                <h3>MORGARD x11</h3>
+                <div class="online">● Сейчас в игре: 89</div>
+            </div>
         </div>
-    </section>
+    </header>
 
     <!-- Особенности -->
     <section>
-        <h2>Особенности игры</h2>
+        <h2>Особенности сервера</h2>
         <div class="features">
             <div class="feature-card">
+                <h3>Система перерождений</h3>
+                <p>Уникальная механика развития персонажа после максимального уровня.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Баланс классов</h3>
+                <p>Все классы тщательно сбалансированы для честной и интересной игры.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Механика крафта</h3>
+                <p>Улучшенная система создания и заточки предметов.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Ежедневные боссы</h3>
+                <p>Каждый день новые мировые боссы с ценными наградами.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section>
+        <h2>Новости проекта</h2>
+        <div class="news">
+            <div class="news-card">
+                <div class="date">4 сентября 2026</div>
+                <h3>Открытие нового сервера</h3>
+                <p>Уже совсем скоро стартует новый сервер x10 с уникальными механиками и бонусами.</p>
+            </div>
+            <div class="news-card">
+                <div class="date">1 сентября 2026</div>
+                <h3>Бонус к пополнению</h3>
+                <p>При пополнении счёта до открытия сервера вы получаете увеличенный бонус.</p>
+            </div>
+            <div class="news-card">
+                <div class="date">28 августа 2026</div>
+                <h3>Обновление клиента</h3>
+                <p>Вышел новый клиент на базе HF + Essence с улучшенной графикой.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>© 2026 Lineage 2 Fan Project</p>
+        <div style="margin-top: 15px;">
+            <a href="#">Discord</a>
+            <a href="#">Telegram</a>
+            <a href="#">Форум</a>
+        </div>
+    </footer>
+
+</body>
+</html>
